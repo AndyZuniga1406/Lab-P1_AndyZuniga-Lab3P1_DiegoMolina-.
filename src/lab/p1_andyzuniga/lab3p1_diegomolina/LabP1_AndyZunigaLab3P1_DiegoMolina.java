@@ -31,6 +31,8 @@ public class LabP1_AndyZunigaLab3P1_DiegoMolina {
             
             switch (opcion){
                 case 1:
+                    System.out.println("Reloj de Arena");
+                    RelojDeArena(entrada);
                     break;
                 case 2:
                     System.out.println("Calculadora de combinaciones");
@@ -104,4 +106,43 @@ public class LabP1_AndyZunigaLab3P1_DiegoMolina {
             System.out.println("Error: El tamaño debe ser un número impar mayor o igual a 7.");
         }
     }
+
+    private static void RelojDeArena(Scanner entrada) {
+        System.out.print("Ingrese el tamano de su figura: ");
+        int tamaño = entrada.nextInt();
+
+        if (tamaño >= 7 && tamaño % 2 != 0) {
+            for (int i = 0; i < tamaño; i++) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print(" ");
+                }
+                for (int j = 0; j < (tamaño - i) * 2 - 1; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+
+            for (int i = 0; i < tamaño; i++) {
+                for (int j = 0; j < tamaño - i - 1; j++) {
+                    System.out.print(" ");
+                }
+                if (i == tamaño - 1 || i == 0) {
+                    for (int j = 0; j < 2 * i + 1; j++) {
+                        System.out.print("*");
+                    }
+                } else {
+                    System.out.print("*");
+                    for (int j = 0; j < (2 * i - 1); j++) {
+                        System.out.print(" ");
+                    }
+                    if (i != 0) {
+                        System.out.print("*");
+                    }
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("Error, introduce otro numero");
+        }
+    }    
 }
