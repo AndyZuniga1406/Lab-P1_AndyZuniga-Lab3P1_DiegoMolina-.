@@ -37,6 +37,8 @@ public class LabP1_AndyZunigaLab3P1_DiegoMolina {
                     CalcularCombi(entrada);
                     break;
                 case 3:
+                    System.out.println("Sandwich");
+                    hacerSandwich(entrada);
                     break;
                 case 4:
                     System.out.println("Fin");
@@ -76,4 +78,30 @@ public class LabP1_AndyZunigaLab3P1_DiegoMolina {
         }
         return resultado;
     }       
+
+    private static void hacerSandwich(Scanner entrada) {
+        System.out.print("Ingrese un numero impar mayor o igual a 7: ");
+        int tamaño = entrada.nextInt();
+        
+        if (tamaño >= 7 && tamaño % 2 != 0) {
+            for (int i = tamaño; i >= 1; i--) {
+                for (int j = 0; j < tamaño - i; j++) {
+                    System.out.print(" ");
+                }
+                for (int j = 1; j <= i; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+
+            for (int i = 1; i <= tamaño; i++) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("Error: El tamaño debe ser un número impar mayor o igual a 7.");
+        }
+    }
 }
